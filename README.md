@@ -1,4 +1,4 @@
-# aws-mon-linux
+# aws-custom-metrics
 
 Bash script that reports custom metric data about Linux performance to Amazon CloudWatch
 
@@ -74,8 +74,8 @@ pip install awscli
 Download "aws-metrics.sh" or clone repository using following steps: 
 
 ```
-git clone https://github.com/moomindani/aws-mon-linux.git
-cd aws-mon-linux
+git clone https://github.com/moomindani/aws-custom-metrics.git
+cd aws-custom-metrics
 ./aws-metrics.sh --help
 ```
 
@@ -128,7 +128,7 @@ The following examples assume that you have already configured awscli with "aws 
 * Run the following command:
 
 ```
-./aws-mon.sh --mem-util --verify --verbose
+./aws-metrics.sh --mem-util --verify --verbose
 ```
 
 #### To collect all available cpu metrics and send them to CloudWatch
@@ -136,7 +136,7 @@ The following examples assume that you have already configured awscli with "aws 
 * Run the following command:
 
 ```
-./aws-mon.sh --cpu-us --cpu-sy --cpu-id --cpu-wa --cpu-st
+./aws-metrics.sh --cpu-us --cpu-sy --cpu-id --cpu-wa --cpu-st
 ```
 
 #### To collect all available memory metrics and send them to CloudWatch
@@ -144,7 +144,7 @@ The following examples assume that you have already configured awscli with "aws 
 * Run the following command:
 
 ```
-./aws-mon.sh --mem-util --mem-used --mem-avail
+./aws-metrics.sh --mem-util --mem-used --mem-avail
 ```
 
 #### To collect all available disk metrics and send them to CloudWatch
@@ -152,7 +152,7 @@ The following examples assume that you have already configured awscli with "aws 
 * Run the following command:
 
 ```
-./aws-mon.sh --disk-space-util --disk-space-used --disk-space-avail --disk-path /
+./aws-metrics.sh --disk-space-util --disk-space-used --disk-space-avail --disk-path /
 ```
 
 #### To collect all load average metrics and send them to CloudWatch
@@ -160,7 +160,7 @@ The following examples assume that you have already configured awscli with "aws 
 * Run the following command:
 
 ```
-./aws-mon.sh --load-ave1 --load-ave5 --load-ave15
+./aws-metrics.sh --load-ave1 --load-ave5 --load-ave15
 ```
 
 #### To set a cron schedule for metrics reported to CloudWatch
@@ -174,5 +174,5 @@ crontab -e
 2. Add the following command to report all items to CloudWatch every five minutes:
 
 ```
-*/5 * * * *  ~/aws-mon-linux/aws-mon.sh --all-items --disk-path=/ --from-cron
+*/5 * * * *  ~/aws-custom-metrics/aws-metrics.sh --all-items --disk-path=/ --from-cron
 ```
